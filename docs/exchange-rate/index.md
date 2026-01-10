@@ -1,17 +1,17 @@
-# Air Quality Dashboard
+# EUR SEK Exchange Rate Dashboard
 
-![Hopsworks Logo](../titanic/assets/img/logo.png)
+![Hopsworks Logo](./logo.png)
 
-{% include air-quality.html %}
+{% include currency_prediction.html %}
 
-![Forecast](./assets/img/pm25_forecast.png)
+![Forecast](./assets/img/EUR_SEK_forecast_lagged.png)
+![Forecast](./assets/img/EUR_SEK_hindcast_1day.png)
 
-
-There is also a Python program to interact with the air quality ML system using language (text, voice),
-powered by a [function-calling LLM](https://www.hopsworks.ai/dictionary/function-calling-with-llms).
 
 # Model Performance Monitoring
 
+
 1-Day Hindcast: Predictions vs Outcomes
 
-![Hindcast](./assets/img/pm25_hindcast_1day.png)
+![Hindcast](./assets/img/EUR_SEK_hindcast_1day.png)
+
