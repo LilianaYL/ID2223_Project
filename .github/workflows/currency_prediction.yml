@@ -39,7 +39,7 @@ jobs:
           commit_message: "Currency Prediction Dashboard published"
           commit_options: '--no-verify --signoff'
 
-          file_pattern: 'docs/exchange-rate/assets/img/*'
+          file_pattern: 'docs/exchange-rate/assets/img/* docs/_includes/*'
 
           repository: .
 
