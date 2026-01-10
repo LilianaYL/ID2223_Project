@@ -5,7 +5,6 @@
 {% include currency_prediction.html %}
 
 ![Forecast](./assets/img/EUR_SEK_forecast_lagged.png)
-![Forecast](./assets/img/EUR_SEK_hindcast_1day.png)
 
 
 # Model Performance Monitoring
