@@ -1,5 +1,5 @@
 
-# EUR SEK Exchange Rate Dashboard
+# EUR/SEK Exchange Rate Dashboard
 
 ![Hopsworks Logo](./exchange-rate/logo.png)
 
