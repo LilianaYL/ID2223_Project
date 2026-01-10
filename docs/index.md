@@ -5,7 +5,11 @@
 
 {% include currency_prediction.html %}
 
+Extended model with lagged features: 
 ![Forecast](./exchange-rate/assets/img/EUR_SEK_forecast_lagged.png)
+
+Baseline model:
+![Forecast](./exchange-rate/assets/img/EUR_SEK_forecast.png)
 
 
 # Model Performance Monitoring
