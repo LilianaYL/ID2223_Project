@@ -2,7 +2,7 @@
 title: EUR SEK Exchange Rate Dashboard
 description: Dashboard for EUR/SEK currency prediction and model performance
 theme: jekyll-theme-minimal
-logo: ./logo.png
+logo: ./exchange-rate/logo.png
 
 # Build settings
 markdown: kramdown
