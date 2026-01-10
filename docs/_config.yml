@@ -1,5 +1,5 @@
 # Site settings
-title: EUR SEK Exchange Rate Dashboard
+title: EUR/SEK Serverless Forecasting System
 description: Dashboard for EUR/SEK currency prediction and model performance
 theme: jekyll-theme-minimal
 logo: ./exchange-rate/logo.png
