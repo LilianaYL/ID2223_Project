@@ -31,24 +31,29 @@ jobs:
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
         run: |
-          ipython 2_currency_feature_pipeline.ipynb
+          # ipython 2_currency_feature_pipeline.ipynb
           ipython 4_currency_batch_inference.ipynb
-     
+          
+      - name: Debug Runner Files
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "Full directory tree (ignoring hidden files):"
+          ls -R
+          echo "Searching specifically for your images:"
+          find . -name "*.png"
+          
       - name: github pages publish
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Currency Prediction Dashboard published"
           commit_options: '--no-verify --signoff'
           push_options: '--force'
-
-          file_pattern: 'docs/exchange-rate/assets/img/*'
-
-          repository: .
-
-          status_options: '--untracked-files=all' # changed from no
-
           skip_dirty_check: true
-          skip_fetch: true
-          skip_checkout: true
+          #skip_fetch: true
+          #skip_checkout: true
+          file_pattern: 'docs/exchange-rate/assets/img/*'
+          repository: .
+          status_options: '--untracked-files=all' # changed from no
 
           
