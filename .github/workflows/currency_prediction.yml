@@ -38,17 +38,16 @@ jobs:
         with:
           commit_message: "Currency Prediction Dashboard published"
           commit_options: '--no-verify --signoff'
+          push_options: '--force'
 
           file_pattern: 'docs/exchange-rate/assets/img/*'
 
           repository: .
 
-          status_options: '--untracked-files=no'
+          status_options: '--untracked-files=all' #changed from no
 
           skip_dirty_check: true
-
           skip_fetch: true
-
           skip_checkout: true
 
-          push_options: '--force'
+          
