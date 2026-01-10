@@ -1,4 +1,8 @@
-#theme: jekyll-theme-minimal
-#title: Building ML Systems Book Dashboards
-#description: Dashboards for ML Systems built from exmaples in the O'Reilly book
-#logo: /titanic/assets/img/logo.png
+# Site settings
+title: EUR SEK Exchange Rate Dashboard
+description: Dashboard for EUR/SEK currency prediction and model performance
+theme: jekyll-theme-minimal
+logo: ./logo.png
+
+# Build settings
+markdown: kramdown
