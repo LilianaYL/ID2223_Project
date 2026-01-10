@@ -2,7 +2,7 @@
 
 ![Hopsworks Logo](./logo.png)
 
-{% include docs/_includes/currency_prediction.html %}
+{% include_relative exchange-rate/_includes/currency_prediction.html %}
 
 ![Forecast](./assets/img/EUR_SEK_forecast_lagged.png)
 
