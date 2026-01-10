@@ -3,6 +3,7 @@
 Group 2223 - Yuxin Jin and Yanling Lu
 
 ## Project Overview
+https://lilianayl.github.io/ID2223_Project/
 
 ## The Prediction Problem
 
@@ -17,7 +18,9 @@ In order to predict the exchange rate between Euro and SEK, we use the currency,
 
 ## Dashboard
 
-The UI that shows the value of the predictions is available at: 
+The dashboard is made with Github Page using a markdown file. The forecasts of exchange-rate made by both model are shown as plotted graphs. The graph of 1-day hindcast is also included in the dashboard. 
+
+The UI that shows the value of the predictions is available at: https://lilianayl.github.io/ID2223_Project/ 
 
 ## Technologies
 
