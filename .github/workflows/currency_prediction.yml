@@ -45,6 +45,6 @@ jobs:
           #skip_checkout: true
           file_pattern: 'docs/exchange-rate/assets/img/*'
           repository: .
-          status_options: '--untracked-files=all' # changed from no
+          status_options: '--untracked-files=no' 
 
           
