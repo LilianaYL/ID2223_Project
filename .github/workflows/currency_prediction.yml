@@ -1,20 +1,50 @@
-- name: execute notebook
-  env:
-    HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-  run: |
-    pip install nbconvert
-    jupyter nbconvert \
-      --to notebook \
-      --execute 4_currency_batch_inference.ipynb \
-      --output executed.ipynb
+name: currency-prediction
 
-- name: list generated files
-  run: |
-    ls -R docs/exchange-rate/assets/img || echo "No images generated"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
 
-- name: github pages publish
-  if: github.event_name == 'schedule'
-  uses: stefanzweifel/git-auto-commit-action@v5
-  with:
-    commit_message: "Currency Prediction Dashboard published"
-    file_pattern: 'docs/exchange-rate/assets/img/*'
+jobs:
+  schedule_pipelines:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install nbconvert
+
+      - name: Execute notebook
+        env:
+          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+        run: |
+          jupyter nbconvert \
+            --to notebook \
+            --execute 4_currency_batch_inference.ipynb \
+            --output executed.ipynb
+
+      - name: List generated files
+        run: |
+          ls -R docs/exchange-rate/assets/img || echo "No images generated"
+
+      - name: GitHub Pages publish
+        if: github.event_name == 'schedule'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Currency Prediction Dashboard published"
+          file_pattern: 'docs/exchange-rate/assets/img/*'
