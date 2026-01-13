@@ -33,7 +33,10 @@ jobs:
         run: |
           ipython 2_currency_feature_pipeline.ipynb
           ipython 4_currency_batch_inference.ipynb
+
+          
       - name: github pages publish
+        continue-on-error: true
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Currency Prediction Dashboard published"
