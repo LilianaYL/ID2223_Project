@@ -3,48 +3,52 @@ name: currency-prediction
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 7 * * *'
 
 jobs:
   schedule_pipelines:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
       pages: write
+      contents: write
 
     steps:
-      - name: Checkout repository
+      - name: checkout repo content
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: setup python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
-
-      - name: Install dependencies
+      - name: install python packages
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install nbconvert
 
-      - name: Execute notebook
+      - name: execute python workflows from bash script
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
         run: |
-          jupyter nbconvert \
-            --to notebook \
-            --execute 4_currency_batch_inference.ipynb \
-            --output executed.ipynb
-
-      - name: List generated files
-        run: |
-          ls -R docs/exchange-rate/assets/img || echo "No images generated"
-
-      - name: GitHub Pages publish
-        if: github.event_name == 'schedule'
+          ipython 2_currency_feature_pipeline.ipynb
+          ipython 4_currency_batch_inference.ipynb
+      - name: github pages publish
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Currency Prediction Dashboard published"
+          commit_options: '--no-verify --signoff'
+
           file_pattern: 'docs/exchange-rate/assets/img/*'
+
+          repository: .
+
+          status_options: '--untracked-files=no'
+
+          skip_dirty_check: true
+
+          skip_fetch: true
+
+          skip_checkout: true
+
+          push_options: '--force'
